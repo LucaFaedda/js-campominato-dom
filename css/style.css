@@ -86,6 +86,15 @@ footer{
     border: 1px solid black;
 }
 
+.medium{
+    width: calc(100% / 9);
+    height: calc(100% / 9);
+}
+
+.ez{
+    width: calc(100% / 7);
+    height: calc(100% / 7);
+}
 .yellow{
     background-color: rgb(10, 153, 179);
 }
