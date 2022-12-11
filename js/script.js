@@ -30,12 +30,12 @@ const number = 0
 
 play.addEventListener('change', function(){
     const grid = document.getElementById('grind') // richiamo da html grid
+    let contatore = 0
     
     grid.innerHTML = ""
     if (this.value == "100"){
         arrayBombs = randomNumberArray(1, 100) // mettere fuori dal for sennò me lo genera infinite volte
         console.log(arrayBombs) 
-        let contatore = 0
 
 
         for (let number  = 1 ; number <= 100 ; number++){
@@ -45,16 +45,13 @@ play.addEventListener('change', function(){
             box.innerHTML += number
             box.addEventListener('click', function(){
                 if(arrayBombs.includes(parseInt(this.innerHTML))){
-                    box.classList.remove('yellow')
                     box.classList.add('red')
                     grid.classList.add('blockevent')
+                    document.getElementById('punteggio').innerHTML = "il tuo punteggio è:  " + contatore
                 }
                 else{
                     box.classList.add('yellow')
-                    contatore = number++
-                    
-                    
-                    
+                    contatore++                   
                 }
                 console.log(number)
                 console.log(contatore)
@@ -75,9 +72,13 @@ play.addEventListener('change', function(){
             box.addEventListener('click', function(){
                 box.classList.add('yellow')
                 if(arrayBombs.includes(parseInt(this.innerHTML))){
-                    box.classList.remove('yellow')
                     box.classList.add('red')
                     grid.classList.add('blockevent')
+                    document.getElementById('punteggio').innerHTML = "il tuo punteggio è:  " + contatore
+                }
+                else{
+                    box.classList.add('yellow')
+                    contatore++
                 }
                 console.log(number)
             })
@@ -97,9 +98,12 @@ play.addEventListener('change', function(){
             box.addEventListener('click', function(){
                 box.classList.add('yellow')
                 if(arrayBombs.includes(parseInt(this.innerHTML))){
-                    box.classList.remove('yellow')
                     box.classList.add('red')
                     grid.classList.add('blockevent')
+                }
+                else{
+                    box.classList.add('yellow')
+                    contatore++
                 }
                 console.log(number)
             })
